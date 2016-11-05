@@ -1,0 +1,28 @@
+<form name="userForm" ng-submit="main.ok(userForm)" novalidate>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 class="modal-title">Add New Item</h3>
+    </div>
+    <div class="modal-body">
+      <label>First Name*</label>
+      <input type="text" name="firstname" class="form-control" ng-model="main.newObj.firstName" ng-required=true required autofocus>
+      <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">The First Name field is required</p>
+      <label>Last Name*</label>
+      <input type="text" name=last class="form-control" ng-model="main.newObj.lastName" ng-required=true required>
+      <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">The Last Name field is required</p>
+      <label>Balance*</label>
+      <input type="number" name="balance" class="form-control" ng-model="main.newObj.balance" ng-required=true required>
+      <p ng-show="userForm.balance.$invalid && !userForm.balance.$pristine" class="help-block">The Balance field is required</p>
+      <label>Email*</label>
+      <input type="email" name="email" class="form-control" ng-model="main.newObj.email" ng-required=true required>
+      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">The Email field is required</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" id="okButton" ng-disabled="userForm.$invalid">OK</button>
+      <button class="btn btn-warning" id="cancelButton" ng-click="main.cancel()">Cancel</button>
+    </div>
+  </div>
+</form>
+
+
+
