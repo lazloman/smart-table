@@ -10,18 +10,18 @@
    */
   function angularPrototypeAppController($scope, $uibModal, DummyData) {
     /*jshint validthis: true */
-    this.rowCollection = [];
-    this.safeCollection = DummyData.generateData(22);
+    this.displayedCollection = [];
+    this.rowCollection = DummyData.generateData(11);
     this.itemsByPage = 5;
-    this.dataSetSize = this.safeCollection.length;
+    this.dataSetSize = this.rowCollection.length;
     this.displayedPages = Math.ceil(this.dataSetSize / this.itemsByPage);
     this.$uibModal = $uibModal;
     this.newObj = {};
-
     this.scope = $scope;
   }
 
   angularPrototypeAppController.prototype.addNewItem = function () {
+    this.newObj = {};
     this.modalInstance = this.$uibModal.open({
       templateUrl: 'views/directives/addNewItem.html',
       scope: this.scope
@@ -34,16 +34,20 @@
       return;
     }
 
-    this.rowCollection.unshift(this.newObj);
     this.modalInstance.close(this.scope);
+    this.rowCollection.unshift(this.newObj);
+    this.dataSetSize++;
+    this.displayedPages = Math.ceil(this.dataSetSize / this.itemsByPage);
   };
+
 
   angularPrototypeAppController.prototype.cancel = function () {
     this.modalInstance.dismiss('cancel');
   };
 
   angularPrototypeAppController.prototype.removeRow = function(row){
-    this.rowCollection.splice(this.rowCollection.indexOf(row), 1);
+
+    this.displayedCollection.splice(this.displayedCollection.indexOf(row), 1);
     this.dataSetSize--;
     this.displayedPages = Math.ceil(this.dataSetSize / this.itemsByPage);
   };

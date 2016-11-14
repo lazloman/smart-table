@@ -21,17 +21,17 @@ describe('Controller: MainCtrl', function () {
     expect(MainCtrl).toBeDefined();
   });
 
-  it('should populate the safeCollection and rowCollection', function () {
+  it('should populate the displayedCollection and rowCollection', function () {
 
-    expect(MainCtrl.rowCollection).toBeDefined();
-    expect(MainCtrl.safeCollection.length).toBe(22);
+    expect(MainCtrl.displayedCollection).toBeDefined();
+    expect(MainCtrl.rowCollection.length).toBe(MainCtrl.dataSetSize);
   });
 
   it('should set itemsByPage', function(){
     expect(MainCtrl.itemsByPage).toBe(5);
   });
 
-  it('should calculate displayedPages', function(){
+  it('should calculate displayedPages on init', function(){
     expect(MainCtrl.displayedPages).toBe(Math.ceil(MainCtrl.dataSetSize / MainCtrl.itemsByPage));
   });
 });

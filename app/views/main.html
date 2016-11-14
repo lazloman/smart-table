@@ -1,4 +1,4 @@
-<table st-table="main.rowCollection" class="table table-striped" id="table" st-safe-src="main.safeCollection">
+<table st-table="main.displayedCollection" class="table table-striped" id="table" st-safe-src="main.rowCollection">
   <thead>
   <tr>
     <th st-sort="firstName">First Name</th>
@@ -16,7 +16,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr ng-repeat="row in main.rowCollection">
+  <tr ng-repeat="row in main.displayedCollection">
     <td tabindex=0">{{row.firstName}}</td>
     <td tabindex=0">{{row.lastName}}</td>
     <td tabindex=0">{{row.balance | currency}}</td>
