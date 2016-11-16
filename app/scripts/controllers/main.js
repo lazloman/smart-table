@@ -16,9 +16,11 @@
     this.dataSetSize = this.rowCollection.length;
     this.displayedPages = Math.ceil(this.dataSetSize / this.itemsByPage);
     this.$uibModal = $uibModal;
+    this.downloading = false;
     this.newObj = {};
     this.scope = $scope;
   }
+
 
   angularPrototypeAppController.prototype.addNewItem = function () {
     this.newObj = {};
@@ -50,6 +52,10 @@
     this.displayedCollection.splice(this.displayedCollection.indexOf(row), 1);
     this.dataSetSize--;
     this.displayedPages = Math.ceil(this.dataSetSize / this.itemsByPage);
+  };
+
+  angularPrototypeAppController.prototype.toggleProgress = function(){
+      this.downloading = !this.downloading;
   };
 
   angular.module('angularPrototypeApp')

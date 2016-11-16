@@ -41,6 +41,8 @@
   </tr>
   </tfoot>
 </table>
+<div ng-show="main.downloading" class="col-sm-4"><uib-progressbar class="progress-striped active" max="100" value="100" type="success"><i>Downloading</i></uib-progressbar></div>
 <p>
   <button type="button" class="btn btn-primary btn-sm" ng-click="main.addNewItem()">Add New Item</button>
+  <button type="button" class="btn btn-primary btn-sm" ng-click="main.toggleProgress()">Toggle Progress</button>
 </p>
